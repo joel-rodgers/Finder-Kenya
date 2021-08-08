@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "823366205962",
+    "project_id": "finder-kenya",
+    "storage_bucket": "finder-kenya.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823366205962:android:ab01124094ea14d677d5f3",
+        "android_client_info": {
+          "package_name": "com.example.finderkenya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823366205962-pk55kmk926h97jrno5r8rgdt19aj8pno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.finderkenya",
+            "certificate_hash": "5ccfa96bd7101d636e767a703fec490a8dc3f1e4"
+          }
+        },
+        {
+          "client_id": "823366205962-n68krtkca5simnu6gh2v4pdbv1r8qkms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-E9geW9YfgCSCwvBJRdLuFTYON7L5x-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823366205962-n68krtkca5simnu6gh2v4pdbv1r8qkms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

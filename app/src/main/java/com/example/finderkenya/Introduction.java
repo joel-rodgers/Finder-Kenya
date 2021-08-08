@@ -1,19 +1,17 @@
 package com.example.finderkenya;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.jetbrains.annotations.NotNull;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class Introduction extends AppCompatActivity {
     ImageView logo,splashImg;
@@ -45,6 +43,8 @@ public class Introduction extends AppCompatActivity {
         splashImg.animate().translationY(-1600).setDuration(1000).setStartDelay(4000);
         logo.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
         appName.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
+
+
 
     }
 
