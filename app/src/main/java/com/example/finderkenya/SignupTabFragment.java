@@ -10,14 +10,20 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignupTabFragment extends Fragment {
-    EditText email,fullnames,mobile,pass;
+    EditText email, fullnames, mobile, pass;
     Button signup;
-    float v=0;
+    float v = 0;
+
+    DatabaseReference finderKenya;
+    FirebaseDatabase rootNode;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false );
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
 
         email = root.findViewById(R.id.email);
         fullnames = root.findViewById(R.id.fullnames);
@@ -43,8 +49,26 @@ public class SignupTabFragment extends Fragment {
         pass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(900).start();
         signup.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(1100).start();
 
+
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rootNode = FirebaseDatabase.getInstance();
+                finderKenya= rootNode.getReference("users");
+
+                finderKenya.setValue("First data storage");
+
+            }
+        });
         return root;
-
-
     }
+
+
+
 }
+
+
+
+
+
