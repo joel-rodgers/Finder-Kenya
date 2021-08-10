@@ -1,6 +1,7 @@
 package com.example.finderkenya;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -18,12 +20,16 @@ public class SignupTabFragment extends Fragment {
     Button signup;
     float v = 0;
 
-    DatabaseReference finderKenya;
+
+
+    DatabaseReference reference;
     FirebaseDatabase rootNode;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.signup_tab_fragment, container, false);
+
+
 
         email = root.findViewById(R.id.email);
         fullnames = root.findViewById(R.id.fullnames);
@@ -51,18 +57,76 @@ public class SignupTabFragment extends Fragment {
 
 
 
+
+        //Save data in Firebase on button click
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                rootNode = FirebaseDatabase.getInstance();
-                finderKenya= rootNode.getReference("users");
+            public void onClick(View view) {
 
-                finderKenya.setValue("First data storage");
+                rootNode = FirebaseDatabase.getInstance();
+                reference= rootNode.getReference("users");
+
+                //Get all values
+                String fname = fullnames.getEditableText().toString();
+                String mail = email.getEditableText().toString();
+                String mobileNo = mobile.getEditableText().toString();
+                String pwd = pass.getEditableText().toString();
+
+
+
+                //validate
+                if(fname.isEmpty()){
+                    fullnames.setError("Full name is required!");
+                    fullnames.requestFocus();
+                    return;
+                }
+
+                if(mail.isEmpty()){
+                    email.setError("Email is required!");
+                    email.requestFocus();
+                    return;
+                }
+
+                if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+                    email.setError("Please provide valid email!");
+                    email.requestFocus();
+                    return;
+                }
+
+                if(mobileNo.isEmpty()){
+                    mobile.setError("Mobile number is required!");
+                    mobile.requestFocus();
+                    return;
+                }
+
+                if(pwd.isEmpty()){
+                    pass.setError("Password is required!");
+                    pass.requestFocus();
+                    return;
+                }
+
+                if(pwd.length() < 6){
+                    pass.setError("Min password length should be 6 characters!");
+                    pass.requestFocus();
+                    return;
+                }
+
+
+
+
+
+                UserHelperClass helperClass = new UserHelperClass(fname,mail,mobileNo,pwd);
+
+
+                reference.child(mobileNo).setValue(helperClass);
+
 
             }
-        });
+
+        });//Register button method end
+
         return root;
-    }
+    }//onCreate Method End
 
 
 

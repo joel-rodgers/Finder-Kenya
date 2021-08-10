@@ -1,0 +1,50 @@
+package com.example.finderkenya;
+
+public class UserHelperClass{
+
+    String fname,mail,mobileNo,pwd;
+
+    public UserHelperClass() {
+    }
+
+    public UserHelperClass(String fname, String mail, String mobileNo, String pwd) {
+        this.fname = fname;
+        this.mail = mail;
+        this.mobileNo = mobileNo;
+        this.pwd = pwd;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+}
+
+

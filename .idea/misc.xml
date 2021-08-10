@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/dnaki/Finder-Kenya/app/src/main/res/layout/signup_tab_fragment.xml" value="0.22" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_login.xml" value="0.10131712259371833" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_main.xml" value="0.13405797101449277" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_user_profile.xml" value="0.1" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/login_tab_fragment.xml" value="0.10131712259371833" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/signup_tab_fragment.xml" value="0.22" />
       </map>
     </option>
   </component>
