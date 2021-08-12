@@ -26,10 +26,9 @@
 
 
         <TextView
-            android:id="@+id/full_name"
+            android:id="@+id/fullnames_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Joel Rodgers"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_toRightOf="@+id/profile_image"
@@ -38,14 +37,14 @@
             android:layout_marginLeft="10dp"/>
 
         <TextView
+            android:id="@+id/username_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="joelrodgers739@gmail.com"
             android:textStyle="italic"
             android:textSize="14sp"
             android:layout_toRightOf="@+id/profile_image"
             android:includeFontPadding="false"
-            android:layout_below="@+id/full_name"
+            android:layout_below="@+id/fullnames_field"
             android:layout_marginLeft="10dp"/>
 
 
@@ -65,11 +64,26 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullnames_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/username_small_icon"
-                android:drawablePadding="10dp"
-                android:text="Joel Rodgers"/>
+                android:drawablePadding="10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/username_small_icon"
+                android:drawablePadding="10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,11 +94,11 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/mail_small_icon"
-                android:drawablePadding="10dp"
-                android:text="joelrodgers739@gmail.com"/>
+                android:drawablePadding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,11 +109,11 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobile_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/mobile_small_icon"
-                android:drawablePadding="10dp"
-                android:text="+254705037971"/>
+                android:drawablePadding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,16 +125,17 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pass_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/password_small_icon"
                 android:drawablePadding="10dp"
-                android:text="12345678"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FF03DAC5"

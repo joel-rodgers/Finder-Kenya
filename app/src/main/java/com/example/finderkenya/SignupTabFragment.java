@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupTabFragment extends Fragment {
-    EditText email, fullnames, mobile, pass;
+    EditText email, fullnames, mobile, pass,username;
     Button signup;
     float v = 0;
 
@@ -32,28 +32,32 @@ public class SignupTabFragment extends Fragment {
 
 
         email = root.findViewById(R.id.email);
+        username = root.findViewById(R.id.username);
         fullnames = root.findViewById(R.id.fullnames);
         mobile = root.findViewById(R.id.mobile);
         pass = root.findViewById(R.id.pass);
         signup = root.findViewById(R.id.signup);
 
         email.setTranslationX(800);
+        username.setTranslationX(800);
         fullnames.setTranslationX(800);
         mobile.setTranslationX(800);
         pass.setTranslationX(800);
         signup.setTranslationX(800);
 
         email.setAlpha(v);
+        username.setAlpha(v);
         fullnames.setAlpha(v);
         mobile.setAlpha(v);
         pass.setAlpha(v);
         signup.setAlpha(v);
 
-        email.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
-        fullnames.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
-        mobile.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(700).start();
-        pass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(900).start();
-        signup.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(1100).start();
+        fullnames.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        username.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
+        email.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(700).start();
+        mobile.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(900).start();
+        pass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(1100).start();
+        signup.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(1300).start();
 
 
 
@@ -67,7 +71,9 @@ public class SignupTabFragment extends Fragment {
                 reference= rootNode.getReference("users");
 
                 //Get all values
+
                 String fname = fullnames.getEditableText().toString();
+                String uname = username.getEditableText().toString();
                 String mail = email.getEditableText().toString();
                 String mobileNo = mobile.getEditableText().toString();
                 String pwd = pass.getEditableText().toString();
@@ -78,6 +84,11 @@ public class SignupTabFragment extends Fragment {
                 if(fname.isEmpty()){
                     fullnames.setError("Full name is required!");
                     fullnames.requestFocus();
+                    return;
+                }
+                if(uname.isEmpty()){
+                    username.setError("Username is required!");
+                    username.requestFocus();
                     return;
                 }
 
@@ -115,10 +126,10 @@ public class SignupTabFragment extends Fragment {
 
 
 
-                UserHelperClass helperClass = new UserHelperClass(fname,mail,mobileNo,pwd);
+                UserHelperClass helperClass = new UserHelperClass(fname,uname,mail,mobileNo,pwd);
 
 
-                reference.child(mobileNo).setValue(helperClass);
+                reference.child(uname).setValue(helperClass);
 
 
             }
