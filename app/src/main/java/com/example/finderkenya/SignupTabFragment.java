@@ -1,5 +1,6 @@
 package com.example.finderkenya;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -122,14 +124,24 @@ public class SignupTabFragment extends Fragment {
                     return;
                 }
 
+                Intent intent = new Intent(getContext(),VerifyPhoneNo.class);
+                intent.putExtra("mobileNo",mobileNo );
+                startActivity(intent);
+
+
+
+               // UserHelperClass helperClass = new UserHelperClass(fname,uname,mail,mobileNo,pwd);
+
+
+               // reference.child(uname).setValue(helperClass);
+
+                /*Toast.makeText(signup.getContext(), "Your Account has been created successfully!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(),LoginTabFragment.class);
+                startActivity(intent);*/
 
 
 
 
-                UserHelperClass helperClass = new UserHelperClass(fname,uname,mail,mobileNo,pwd);
-
-
-                reference.child(uname).setValue(helperClass);
 
 
             }
