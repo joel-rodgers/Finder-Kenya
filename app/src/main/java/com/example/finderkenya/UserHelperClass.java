@@ -2,21 +2,30 @@ package com.example.finderkenya;
 
 public class UserHelperClass{
 
-    String fname,uname,mail,mobileNo,pwd;
+    private String userId,fname,uname,mail,mobileNo,pwd;
+    private String imageURL;
 
     public UserHelperClass() {
     }
 
-    public UserHelperClass(String fname, String uname, String mail, String mobileNo, String pwd) {
+    public UserHelperClass(String userId,String fname, String uname, String mail, String mobileNo, String pwd, String imageURL) {
 
+        this.userId = userId;
         this.fname = fname;
         this.uname = uname;
         this.mail = mail;
         this.mobileNo = mobileNo;
         this.pwd = pwd;
+        this.imageURL = imageURL;
     }
 
 
+
+    public String getUserId() { return userId; }
+
+    public void setUserId(String userId) {
+        this.userId= userId;
+    }
 
     public String getFname() { return fname; }
 
@@ -54,6 +63,14 @@ public class UserHelperClass{
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
 

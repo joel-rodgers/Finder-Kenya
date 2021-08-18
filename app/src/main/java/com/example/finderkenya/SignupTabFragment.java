@@ -8,23 +8,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Objects;
+
 public class SignupTabFragment extends Fragment {
-    EditText email, fullnames, mobile, pass,username;
-    Button signup;
+    private EditText email, fullnames, mobile, pass,username;
+    private Button signup;
     float v = 0;
+    private ProgressBar progressBar;
+    private FirebaseAuth firebaseAuth;
 
 
 
-    DatabaseReference reference;
+    private DatabaseReference reference;
     FirebaseDatabase rootNode;
 
     @Override
@@ -39,6 +51,8 @@ public class SignupTabFragment extends Fragment {
         mobile = root.findViewById(R.id.mobile);
         pass = root.findViewById(R.id.pass);
         signup = root.findViewById(R.id.signup);
+        progressBar = root.findViewById(R.id.progress_bar);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         email.setTranslationX(800);
         username.setTranslationX(800);
@@ -68,17 +82,19 @@ public class SignupTabFragment extends Fragment {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getContext(),LoginActivity.class));
 
-                rootNode = FirebaseDatabase.getInstance();
-                reference= rootNode.getReference("users");
+
+                //rootNode = FirebaseDatabase.getInstance();
+                //reference= rootNode.getReference("users");
 
                 //Get all values
 
-                String fname = fullnames.getEditableText().toString();
-                String uname = username.getEditableText().toString();
-                String mail = email.getEditableText().toString();
-                String mobileNo = mobile.getEditableText().toString();
-                String pwd = pass.getEditableText().toString();
+                final String fname = fullnames.getEditableText().toString();
+                final String uname = username.getEditableText().toString();
+                final String mail = email.getEditableText().toString();
+                final String mobileNo = mobile.getEditableText().toString();
+                final String pwd = pass.getEditableText().toString();
 
 
 
@@ -124,9 +140,9 @@ public class SignupTabFragment extends Fragment {
                     return;
                 }
 
-                Intent intent = new Intent(getContext(),VerifyPhoneNo.class);
-                intent.putExtra("mobileNo",mobileNo );
-                startActivity(intent);
+               // Intent intent = new Intent(getContext(),VerifyPhoneNo.class);
+                //intent.putExtra("mobileNo",mobileNo );
+               // startActivity(intent);
 
 
 
@@ -139,14 +155,54 @@ public class SignupTabFragment extends Fragment {
                 Intent intent = new Intent(getContext(),LoginTabFragment.class);
                 startActivity(intent);*/
 
-
-
-
+                signup(fname,uname,mail,mobileNo,pwd);
 
 
             }
+            private void signup(String fname,String uname,String mail,String mobileNo, String pwd){
+                progressBar.setVisibility(View.VISIBLE);
+                firebaseAuth.createUserWithEmailAndPassword(mail,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            FirebaseUser rUser = firebaseAuth.getCurrentUser();
+                            assert rUser != null;
+                            String userId = rUser.getUid();
+                            reference=FirebaseDatabase.getInstance().getReference("users").child(userId);
+                            HashMap<String,String> hashMap = new HashMap<>();
+                            hashMap.put("userId",userId);
+                            hashMap.put("fname",fname);
+                            hashMap.put("uname",uname);
+                            hashMap.put("mail",mail);
+                            hashMap.put("mobileNo",mobileNo);
+                            hashMap.put("pwd",pwd);
+                            hashMap.put("imageURL","default");
+                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if(task.isSuccessful()){
+                                        Intent intent = new Intent(getContext(),LoginActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                    }else{
+                                        Toast.makeText(getContext(), Objects.requireNonNull(task.getException().getMessage()), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            });
+
+                        }else{
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getContext(),Objects.requireNonNull(task.getException()) .getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+            }
 
         });//Register button method end
+
 
         return root;
     }//onCreate Method End

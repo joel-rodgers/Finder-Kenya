@@ -15,14 +15,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             android:layout_marginBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username"
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/username_small_icon"
+                android:drawableLeft="@drawable/mail_small_icon"
                 android:drawablePadding="10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -50,6 +50,12 @@
             android:background="#FF03DAC5"
             android:text="Login"
             android:textColor="#FFF" />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content" />
     </LinearLayout>
 
 </ScrollView>
