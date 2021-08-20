@@ -176,7 +176,7 @@ public class SignupTabFragment extends Fragment {
                             hashMap.put("mail",mail);
                             hashMap.put("mobileNo",mobileNo);
                             hashMap.put("pwd",pwd);
-                            hashMap.put("imageURL","default");
+                            hashMap.put("imageUrl","default");
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

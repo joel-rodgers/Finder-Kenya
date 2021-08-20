@@ -3,7 +3,7 @@ package com.example.finderkenya;
 public class UserHelperClass{
 
     private String userId,fname,uname,mail,mobileNo,pwd;
-    private String imageURL;
+    private String imageUrl;
 
     public UserHelperClass() {
     }
@@ -16,7 +16,7 @@ public class UserHelperClass{
         this.mail = mail;
         this.mobileNo = mobileNo;
         this.pwd = pwd;
-        this.imageURL = imageURL;
+        this.imageUrl = imageURL;
     }
 
 
@@ -66,11 +66,11 @@ public class UserHelperClass{
     }
 
     public String getImageURL() {
-        return imageURL;
+        return imageUrl;
     }
 
     public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+        this.imageUrl = imageURL;
     }
 }
 

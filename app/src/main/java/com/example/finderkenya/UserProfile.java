@@ -23,6 +23,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,11 +35,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -203,7 +208,48 @@ public class UserProfile extends AppCompatActivity {
             byte[] imageFileToByte = byteArrayOutputStream.toByteArray();
             final StorageReference imageReference = storageReference.child(userHelperClass.getFname()+System.currentTimeMillis()+"jpg");
             storageTask = imageReference.putBytes(imageFileToByte);
-            //storageTask.continueWithTask((Continuation<>) )
+            storageTask.continueWithTask((Continuation<UploadTask.TaskSnapshot, Task<Uri>>)task ->{
+                if(! task.isSuccessful()){
+                    throw task.getException();
+                }
+                return imageReference.getDownloadUrl();
+
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if(task.isSuccessful()){
+                        Uri downloadUri = task.getResult();
+                        String sDownloadUri = downloadUri.toString();
+                        Map<String,Object> hashmap = new HashMap<>();
+                        hashmap.put("imageUrl",sDownloadUri);
+                        reference.updateChildren(hashmap);
+                        final DatabaseReference profileImagesReference = FirebaseDatabase.getInstance().getReference("profile_images").child(firebaseUser.getUid());
+                        profileImagesReference.push().setValue(hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    progressDialog.dismiss();
+                                }else{
+                                    progressDialog.dismiss();
+                                    Toast.makeText(UserProfile.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                    }else{
+                        Toast.makeText(UserProfile.this, "Failed!", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    progressDialog.dismiss();
+                    Toast.makeText(UserProfile.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
         }
         }
 
