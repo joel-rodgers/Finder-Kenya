@@ -159,23 +159,24 @@ public class MissingPersons extends AppCompatActivity {
                                             mDatabaseUsers.addValueEventListener(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    newPost.child("victimName").setValue(victimname);
-                                                    newPost.child("obNumber").setValue(ob);
-                                                    newPost.child("victimLastSeen").setValue(lastseen);
-                                                    newPost.child("victimDob").setValue(dob);
-                                                    newPost.child("victimDescription").setValue(description);
-                                                    newPost.child("victimHome").setValue(victimhome);
-                                                    newPost.child("victimContact1").setValue(vc1);
-                                                    newPost.child("victimContact2").setValue(vc2);
-                                                    newPost.child("caseStatus").setValue(cstatus);
+                                                    newPost.child("victimName").setValue(victimname.getText().toString());
+                                                    newPost.child("obNumber").setValue(ob.getText().toString());
+                                                    newPost.child("victimLastSeen").setValue(lastseen.getText().toString());
+                                                    newPost.child("victimDob").setValue(dob.getText().toString());
+                                                    newPost.child("victimDescription").setValue(description.getText().toString());
+                                                    newPost.child("victimHome").setValue(victimhome.getText().toString());
+                                                    newPost.child("victimContact1").setValue(vc1.getText().toString());
+                                                    newPost.child("victimContact2").setValue(vc2.getText().toString());
+                                                    newPost.child("caseStatus").setValue(cstatus.getText().toString());
                                                     newPost.child("postImage").setValue(imageUrl);
                                                     newPost.child("uid").setValue(mCurrentUser.getUid());
                                                     newPost.child("time").setValue(saveCurrentTime);
+                                                    newPost.child("fname").setValue(snapshot.child("fname").getValue());
                                                     newPost.child("date").setValue(saveCurrentDate).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if(task.isSuccessful()){
-                                                                Intent intent = new Intent(MissingPersons.this, MainActivity.class);
+                                                                Intent intent = new Intent(MissingPersons.this, MPList.class);
                                                                 startActivity(intent);
                                                             }
                                                         }
@@ -209,5 +210,16 @@ public class MissingPersons extends AppCompatActivity {
 
 
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultcode, Intent data){
+        super.onActivityResult(requestCode, resultcode, data);
+
+        if(requestCode == GALLERY_REQUEST_CODE && resultcode == RESULT_OK){
+            uri = data.getData();
+            imageBtn.setImageURI(uri);
+        }
     }
 }

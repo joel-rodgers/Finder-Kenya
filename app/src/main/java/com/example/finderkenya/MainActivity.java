@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity  {
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         card1 = (CardView) findViewById(R.id.userprofile);
+        card2 = (CardView) findViewById(R.id.missingpersons);
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseUser=firebaseAuth.getCurrentUser();
 
@@ -66,6 +67,14 @@ public class MainActivity extends AppCompatActivity  {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(getApplicationContext(), UserProfile.class);
+                        startActivity(intent);
+                    }
+                });
+
+                card2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), MPList.class);
                         startActivity(intent);
                     }
                 });
