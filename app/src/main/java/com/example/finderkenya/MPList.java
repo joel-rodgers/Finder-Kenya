@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MPList extends AppCompatActivity {
+public class MPList extends AppCompatActivity implements MyAdapter.onInfoListener {
 
     RecyclerView recyclerView;
     DatabaseReference database;
@@ -36,8 +36,10 @@ public class MPList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+
         list = new ArrayList<>();
-        myAdapter = new MyAdapter(this,list);
+        myAdapter = new MyAdapter(this,list,this);
         recyclerView.setAdapter(myAdapter);
 
         fab = findViewById(R.id.fab);
@@ -69,5 +71,11 @@ public class MPList extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onInfoClick(int position) {
+        Intent intent = new Intent(this,MPPoster.class);
+        startActivity(intent);
     }
 }

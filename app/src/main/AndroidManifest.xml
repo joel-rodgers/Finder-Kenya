@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinderKenya">
         <activity
+            android:name=".MPPoster"
+            android:exported="true" />
+        <activity
             android:name=".MPList"
             android:exported="true" />
         <activity

@@ -8,23 +8,21 @@
     android:layout_margin="16dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/victimImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/profile"
-
-            app:civ_border_width="2dp"
-            app:civ_border_color="@android:color/white"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center"/>
 
+            android:layout_gravity="center"
+            android:src="@drawable/profile"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
 
 
         <LinearLayout
@@ -34,18 +32,15 @@
             android:orientation="horizontal">
 
 
-
-
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Victim Name :"
                 android:textColor="@color/black"
 
+
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/victimname"
@@ -54,7 +49,7 @@
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -69,8 +64,7 @@
                 android:text="Date Posted :"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/datePosted"
@@ -79,8 +73,10 @@
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -94,7 +90,7 @@
                 android:text="Posted By :"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/reporter"
@@ -103,9 +99,27 @@
                 android:layout_marginLeft="8dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/ic_info"
+
+                />
+
+
         </LinearLayout>
 
     </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
