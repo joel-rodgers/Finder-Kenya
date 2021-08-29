@@ -2,8 +2,23 @@ package com.example.finderkenya;
 
 public class MPHelperClass {
 
-    private String victimName,obNumber,victimLastSeen,victimDob,victimDescription,victimHome,victimContact1,victimContact2,caseStatus,postImage,time,date,fname;
+    public boolean visibility;
+    private String victimName;
+    private String obNumber;
+    private String victimLastSeen;
+    private String victimDob;
+    private String victimDescription;
+    private String victimHome;
+    private String victimContact1;
+    private String victimContact2;
+    private String caseStatus;
+    static String postImage;
+    private String time;
+    private String date;
+    private String fname;
    // private String imageUrl;
+
+
 
     public MPHelperClass(String victimName,String obNumber,String victimLastSeen,String victimDob,String victimDescription,String victimHome,String victimContact1,String victimContact2,String caseStatus,String postImage,String time,String date,String fname,String imageUrl){
         this.victimName = victimName;
@@ -19,6 +34,7 @@ public class MPHelperClass {
         this.time = time;
         this.date = date;
         this.fname= fname;
+        this.visibility= false;
        // this.imageUrl = imageURL;
 
     }
@@ -26,7 +42,13 @@ public class MPHelperClass {
 
     }
 
+    public boolean isVisibility() {
+        return visibility;
+    }
 
+    public void setVisibility(boolean visibility) {
+        this.visibility = visibility;
+    }
 
     public String getFname() {
         return fname;
@@ -108,7 +130,7 @@ public class MPHelperClass {
         this.caseStatus = caseStatus;
     }
 
-    public String getPostImage() {
+    public static String getPostImage() {
         return postImage;
     }
 
