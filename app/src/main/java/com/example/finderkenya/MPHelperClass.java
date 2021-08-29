@@ -3,9 +3,9 @@ package com.example.finderkenya;
 public class MPHelperClass {
 
     private String victimName,obNumber,victimLastSeen,victimDob,victimDescription,victimHome,victimContact1,victimContact2,caseStatus,postImage,time,date,fname;
+   // private String imageUrl;
 
-
-    public MPHelperClass(String victimName,String obNumber,String victimLastSeen,String victimDob,String victimDescription,String victimHome,String victimContact1,String victimContact2,String caseStatus,String postImage,String time,String date,String fname){
+    public MPHelperClass(String victimName,String obNumber,String victimLastSeen,String victimDob,String victimDescription,String victimHome,String victimContact1,String victimContact2,String caseStatus,String postImage,String time,String date,String fname,String imageUrl){
         this.victimName = victimName;
         this.obNumber = obNumber;
         this.victimLastSeen = victimLastSeen;
@@ -19,6 +19,7 @@ public class MPHelperClass {
         this.time = time;
         this.date = date;
         this.fname= fname;
+       // this.imageUrl = imageURL;
 
     }
     public MPHelperClass(){
@@ -130,4 +131,6 @@ public class MPHelperClass {
     public void setDate(String date) {
         this.date = date;
     }
+
+
 }

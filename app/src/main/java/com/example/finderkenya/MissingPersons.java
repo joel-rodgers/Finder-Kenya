@@ -176,7 +176,18 @@ public class MissingPersons extends AppCompatActivity {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if(task.isSuccessful()){
-                                                                Intent intent = new Intent(MissingPersons.this, MPList.class);
+                                                                Intent intent = new Intent(MissingPersons.this, MPPoster.class);
+                                                                intent.putExtra("victimName", victimname.getText().toString());
+                                                                intent.putExtra("obNumber", ob.getText().toString());
+                                                                intent.putExtra("victimLastSeen", lastseen.getText().toString());
+                                                                intent.putExtra("victimDob",dob.getText().toString());
+                                                                intent.putExtra("victimDescription",description.getText().toString());
+                                                                intent.putExtra("victimHome",victimhome.getText().toString());
+                                                                intent.putExtra("victimContact1",vc1.getText().toString());
+                                                                intent.putExtra("victimContact2",vc2.getText().toString());
+                                                                intent.putExtra("caseStatus",cstatus.getText().toString());
+                                                                intent.putExtra("postImage",imageUrl.toString());
+
                                                                 startActivity(intent);
                                                             }
                                                         }

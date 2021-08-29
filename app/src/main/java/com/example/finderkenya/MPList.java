@@ -75,7 +75,10 @@ public class MPList extends AppCompatActivity implements MyAdapter.onInfoListene
 
     @Override
     public void onInfoClick(int position) {
+
         Intent intent = new Intent(this,MPPoster.class);
+
+
         startActivity(intent);
     }
 }
