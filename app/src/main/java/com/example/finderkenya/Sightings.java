@@ -135,6 +135,8 @@ public class Sightings extends AppCompatActivity {
                             newSighting.child("time").setValue(saveCurrentTime);
                             newSighting.child("caseId").setValue(snapshot.child("caseId").getValue());
                             newSighting.child("fname").setValue(snapshot.child("fname").getValue());
+                            newSighting.child("mobileNo").setValue(snapshot.child("mobileNo").getValue());
+                            newSighting.child("postImage").setValue(snapshot.child("postImage").getValue());
                             newSighting.child("date").setValue(saveCurrentDate).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

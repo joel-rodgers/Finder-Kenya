@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/victimImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/profile"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="108dp"
+            android:layout_height="30dp"
+            android:text="Missing Person:"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_toRightOf="@+id/victimImage"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/victimname"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_toRightOf="@+id/textView1"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dateSeen"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:hint="Date Seen"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/victimImage"
+            android:layout_below="@id/textView1"
+            android:layout_marginLeft="15dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="82dp"
+            android:layout_height="30dp"
+            android:text="Location seen:"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/victimImage"
+            android:layout_below="@+id/dateSeen"
+            android:layout_marginLeft="15dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_below="@+id/dateSeen"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="Seen By:"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/victimImage"
+            android:layout_below="@+id/textView2"
+            android:layout_marginLeft="15dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/reporter"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/textView3"
+            android:layout_below="@+id/location"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="Contact:"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/victimImage"
+            android:layout_below="@+id/textView3"
+            android:layout_marginLeft="15dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_toRightOf="@+id/textView3"
+            android:layout_below="@+id/reporter"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="---------------------------------------------------------------------------"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/victimImage"
+            android:layout_below="@+id/contact"
+            android:layout_marginTop="-5dp"
+            android:layout_marginLeft="15dp">
+
+        </TextView>
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
