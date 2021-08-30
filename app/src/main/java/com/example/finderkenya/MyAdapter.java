@@ -1,13 +1,17 @@
 package com.example.finderkenya;
 
+import static com.example.finderkenya.MPHelperClass.getPostImage;
 import static java.security.AccessController.getContext;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,10 +23,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
     Context context;
 
@@ -30,9 +35,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     static ArrayList<MPHelperClass> list;
 
 
+
+
+
     public MyAdapter(Context context, ArrayList<MPHelperClass> list) {
         this.context = context;
         this.list = list;
+
+
 
     }
 
@@ -62,8 +72,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.constraintLayout.setVisibility(isVisible ? View.VISIBLE : View.GONE);
 
 
-        Glide.with(holder.itemView.getContext())
-               .load(MPHelperClass.getPostImage())
+        Glide.with(holder.postImage)
+               .load(getPostImage())
                 .placeholder(R.drawable.profile)
                 .circleCrop()
                 .error(R.drawable.ic_launcher_background)
@@ -82,12 +92,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return list.size();
     }
 
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView victimName,datePosted,postedBy;
         EditText obNumber,victimLastSeen,victimDob,victimDescription,victimHome,victimContact1,victimContact2,caseStatus;
         CircleImageView postImage;
         ImageButton info;
+
+
 
         ConstraintLayout constraintLayout;
 
@@ -139,13 +153,35 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            });
 
 
+           postImage.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   Intent intent = new Intent(context,MPPoster.class);
+                   intent.putExtra("victimName",list.get(getAdapterPosition()).getVictimName());
+                   intent.putExtra("obNumber",list.get(getAdapterPosition()).getObNumber() );
+                   intent.putExtra("victimLastSeen",list.get(getAdapterPosition()).getVictimLastSeen());
+                   intent.putExtra("victimDob",list.get(getAdapterPosition()).getVictimDob());
+                   intent.putExtra("victimDescription",list.get(getAdapterPosition()).getVictimDescription());
+                   intent.putExtra("victimHome",list.get(getAdapterPosition()).getVictimHome());
+                   intent.putExtra("victimContact1",list.get(getAdapterPosition()).getVictimContact1());
+                   intent.putExtra("victimContact2",list.get(getAdapterPosition()).getVictimContact2());
+                   intent.putExtra("caseStatus",list.get(getAdapterPosition()).getCaseStatus());
+                   intent.putExtra("postImage",list.get(getAdapterPosition()).getPostImage());
+
+                   context.startActivity(intent);
+
+
+               }
+           });
+
+
 
 
 
        }
 
-
     }
+
 
 
 }

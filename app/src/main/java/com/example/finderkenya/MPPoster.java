@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MPPoster extends AppCompatActivity {
+public class MPPoster extends AppCompatActivity   {
 
     private EditText victimname,ob,lastseen,dob,description,victimhome,vc1,vc2,cstatus;
     private FloatingActionButton edit,share,download;
@@ -49,7 +49,6 @@ public class MPPoster extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mpposter);
 
-
         Intent data = getIntent();
         String vname= data.getStringExtra("victimName");
         String obNumber= data.getStringExtra("obNumber");
@@ -61,7 +60,6 @@ public class MPPoster extends AppCompatActivity {
         String victimContact2= data.getStringExtra("victimContact2");
         String caseStatus= data.getStringExtra("caseStatus");
         String image= data.getStringExtra("postImage");
-
 
         //Hooks
         victimname=findViewById(R.id.victimname);
@@ -78,8 +76,6 @@ public class MPPoster extends AppCompatActivity {
         edit=findViewById(R.id.fabEdit);
 
 
-        firebaseAuth=FirebaseAuth.getInstance();
-        firebaseUser=firebaseAuth.getCurrentUser();
 
         victimname.setText(vname);
         ob.setText(obNumber);
@@ -92,7 +88,18 @@ public class MPPoster extends AppCompatActivity {
         cstatus.setText(caseStatus);
         Glide.with(getApplicationContext()).load(image).into(imgBtn);
 
-        Log.d(TAG, "onCreate:" + vname + " " + obNumber + " " + victimLastSeen + " " + victimDob + " " + victimHome + " ");
+
+
+
+
+
+
+
+        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseUser=firebaseAuth.getCurrentUser();
+
+
+       // Log.d(TAG, "onCreate:" + vname + " " + obNumber + " " + victimLastSeen + " " + victimDob + " " + victimHome + " ");
 
 
 
@@ -100,13 +107,45 @@ public class MPPoster extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(MPPoster.this,EditMP.class);
+                intent.putExtra("victimName",victimname.getText().toString());
+                intent.putExtra("obNumber",ob.getText().toString() );
+                intent.putExtra("victimLastSeen",lastseen.getText().toString());
+                intent.putExtra("victimDob",dob.getText().toString());
+                intent.putExtra("victimDescription",description.getText().toString());
+                intent.putExtra("victimHome",victimhome.getText().toString());
+                intent.putExtra("victimContact1",vc1.getText().toString());
+                intent.putExtra("victimContact2",vc2.getText().toString());
+                intent.putExtra("caseStatus",cstatus.getText().toString());
+
+
                 startActivity(intent);
+            }
+        });
+
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        sighting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Sightings.class);
+                intent.putExtra("victimName",victimname.getText().toString());
+                intent.putExtra("obNumber",ob.getText().toString() );
+               // intent.putExtra("postImage",list.get(getAdapterPosition()).getPostImage());
+                startActivity(intent);
+
             }
         });
 
 
 
 
-
     }
+
+
 }

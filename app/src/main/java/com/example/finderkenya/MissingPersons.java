@@ -79,6 +79,9 @@ public class MissingPersons extends AppCompatActivity {
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("users").child(mCurrentUser.getUid());
 
 
+
+
+
         dob= findViewById(R.id.dob);
         dob.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -155,6 +158,7 @@ public class MissingPersons extends AppCompatActivity {
                                             final String imageUrl = uri.toString();
                                             Toast.makeText(getApplicationContext(),"Succesfully Uploaded...", Toast.LENGTH_SHORT).show();
                                             final DatabaseReference newPost = databaseRef.push();
+                                            String mCaseId = databaseRef.push().getKey();
 
                                             mDatabaseUsers.addValueEventListener(new ValueEventListener() {
                                                 @Override
@@ -170,23 +174,14 @@ public class MissingPersons extends AppCompatActivity {
                                                     newPost.child("caseStatus").setValue(cstatus.getText().toString());
                                                     newPost.child("postImage").setValue(imageUrl);
                                                     newPost.child("uid").setValue(mCurrentUser.getUid());
+                                                    newPost.child("caseId").setValue(mCaseId);
                                                     newPost.child("time").setValue(saveCurrentTime);
                                                     newPost.child("fname").setValue(snapshot.child("fname").getValue());
                                                     newPost.child("date").setValue(saveCurrentDate).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if(task.isSuccessful()){
-                                                                Intent intent = new Intent(MissingPersons.this, MPPoster.class);
-                                                                intent.putExtra("victimName", victimname.getText().toString());
-                                                                intent.putExtra("obNumber", ob.getText().toString());
-                                                                intent.putExtra("victimLastSeen", lastseen.getText().toString());
-                                                                intent.putExtra("victimDob",dob.getText().toString());
-                                                                intent.putExtra("victimDescription",description.getText().toString());
-                                                                intent.putExtra("victimHome",victimhome.getText().toString());
-                                                                intent.putExtra("victimContact1",vc1.getText().toString());
-                                                                intent.putExtra("victimContact2",vc2.getText().toString());
-                                                                intent.putExtra("caseStatus",cstatus.getText().toString());
-                                                                intent.putExtra("postImage",imageUrl.toString());
+                                                                Intent intent = new Intent(MissingPersons.this, MPList.class);
 
                                                                 startActivity(intent);
                                                             }

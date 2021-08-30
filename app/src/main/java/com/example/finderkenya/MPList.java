@@ -2,11 +2,16 @@ package com.example.finderkenya;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MPList extends AppCompatActivity  {
+public class MPList extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
@@ -26,10 +31,16 @@ public class MPList extends AppCompatActivity  {
     ArrayList<MPHelperClass> list;
     FloatingActionButton fab;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mplist);
+
+        //Toolbar toolbar = findViewById(R.id.tool_bar);
+        //setSupportActionBar(toolbar);
+
 
         recyclerView = findViewById(R.id.mpList);
         database = FirebaseDatabase.getInstance().getReference("missing_persons");

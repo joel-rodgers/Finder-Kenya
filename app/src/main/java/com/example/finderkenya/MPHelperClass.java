@@ -13,6 +13,7 @@ public class MPHelperClass {
     private String victimContact2;
     private String caseStatus;
     static String postImage;
+    private static String caseId;
     private String time;
     private String date;
     private String fname;
@@ -20,7 +21,7 @@ public class MPHelperClass {
 
 
 
-    public MPHelperClass(String victimName,String obNumber,String victimLastSeen,String victimDob,String victimDescription,String victimHome,String victimContact1,String victimContact2,String caseStatus,String postImage,String time,String date,String fname,String imageUrl){
+    public MPHelperClass(String caseId,String victimName,String obNumber,String victimLastSeen,String victimDob,String victimDescription,String victimHome,String victimContact1,String victimContact2,String caseStatus,String postImage,String time,String date,String fname,String imageUrl){
         this.victimName = victimName;
         this.obNumber = obNumber;
         this.victimLastSeen = victimLastSeen;
@@ -35,11 +36,20 @@ public class MPHelperClass {
         this.date = date;
         this.fname= fname;
         this.visibility= false;
+        this.caseId = caseId;
        // this.imageUrl = imageURL;
 
     }
     public MPHelperClass(){
 
+    }
+
+    public static String getCaseId() {
+        return caseId;
+    }
+
+    public void setCaseId(String caseId) {
+        this.caseId = caseId;
     }
 
     public boolean isVisibility() {

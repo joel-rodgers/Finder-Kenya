@@ -15,7 +15,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:padding="10dp"
-        app:title="Missing Person"
+        app:title="Missing"
         app:titleMarginStart="40dp"
         app:logo="@drawable/ic_back"
 

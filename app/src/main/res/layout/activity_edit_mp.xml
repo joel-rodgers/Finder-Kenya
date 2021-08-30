@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Edit Missing Person"
         android:textColor="#FF03DAC5"
-        android:textSize="40sp"
+        android:textSize="25sp"
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:layout_marginBottom="30dp"/>
@@ -169,7 +169,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/postMP"
+        android:id="@+id/updateMP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FF03DAC5"
