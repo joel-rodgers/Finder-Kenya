@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/drawable-v24/action_button_style.xml" value="0.1" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_edit_mp.xml" value="0.209375" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_emergency_services.xml" value="0.1" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_forget_password.xml" value="0.1" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_login.xml" value="0.10131712259371833" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/activity_main.xml" value="0.22" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/image_layout.xml" value="0.1" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/item.xml" value="0.22088353413654618" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/item2.xml" value="0.2037037037037037" />
+        <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/list_item.xml" value="0.1" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/login_tab_fragment.xml" value="0.33" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/select_image_layout.xml" value="0.15" />
         <entry key="..\:/Users/Joel Rodgers K'obara/AndroidStudioProjects/FinderKenya/app/src/main/res/layout/signup_tab_fragment.xml" value="0.1" />
