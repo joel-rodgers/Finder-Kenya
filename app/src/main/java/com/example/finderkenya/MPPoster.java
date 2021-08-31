@@ -136,7 +136,7 @@ public class MPPoster extends AppCompatActivity   {
                 Intent intent = new Intent(getApplicationContext(), Sightings.class);
                 intent.putExtra("victimName",victimname.getText().toString());
                 intent.putExtra("obNumber",ob.getText().toString() );
-               // intent.putExtra("postImage",list.get(getAdapterPosition()).getPostImage());
+                //intent.putExtra("postImage",list.get(getAdapterPosition()).getPostImage());
                 startActivity(intent);
 
             }

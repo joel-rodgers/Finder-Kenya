@@ -72,13 +72,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
         boolean isVisible =  mpHelperClass.visibility;
         holder.linearLayout.setVisibility(isVisible ? View.VISIBLE : View.GONE);
 
+        //holder.postImage.setImageResource(mpHelperClass.postImage);
 
-        Glide.with(context)
-               .load(mpHelperClass.getPostImage())
-                .placeholder(R.drawable.profile)
-                .circleCrop()
-                .error(R.drawable.ic_launcher_background)
-                .into(holder.postImage);
+        Glide.with(holder.vImage.getContext()).load(mpHelperClass.getPostImage()).placeholder(R.drawable.profile).into(holder.vImage);
+
+                //.placeholder(R.drawable.profile)
+                //.circleCrop()
+                //.error(R.drawable.ic_launcher_background)
+
 
 
 
@@ -99,7 +100,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
         TextView victimName,datePosted,postedBy;
         EditText obNumber,victimLastSeen,victimDob,victimDescription,victimHome,victimContact1,victimContact2,caseStatus;
-        CircleImageView postImage;
+        CircleImageView vImage;
         ImageButton info;
 
 
@@ -112,7 +113,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
            victimName = itemView.findViewById(R.id.victimname);
            datePosted = itemView.findViewById(R.id.datePosted);
            postedBy = itemView.findViewById(R.id.reporter);
-           postImage = itemView.findViewById(R.id.victimImage);
+           vImage = itemView.findViewById(R.id.victimImage);
            info = itemView.findViewById(R.id.info);
 
 
@@ -154,7 +155,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
            });
 
 
-           postImage.setOnClickListener(new View.OnClickListener() {
+           vImage.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    Intent intent = new Intent(context,MPPoster.class);

@@ -1,6 +1,8 @@
 package com.example.finderkenya;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +20,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SightingsAdapter extends RecyclerView.Adapter<SightingsAdapter.MyViewHolder> {
 
 
-    Context context;
+    static Context context;
 
-    ArrayList<SightingHelperClass> list;
+    static ArrayList<SightingHelperClass> list;
 
     public SightingsAdapter(Context context, ArrayList<SightingHelperClass> list) {
         this.context = context;
@@ -44,11 +46,9 @@ public class SightingsAdapter extends RecyclerView.Adapter<SightingsAdapter.MyVi
         holder.location.setText(sightingHelperClass.getLocationSighting());
         holder.contact.setText(sightingHelperClass.getMobileNo());
         Glide
-                .with(context)
+                .with(holder.postImage.getContext())
                 .load(sightingHelperClass.getPostImage())
                 .placeholder(R.drawable.profile)
-                .circleCrop()
-                .error(R.drawable.ic_launcher_background)
                 .into(holder.postImage);
 
     }
@@ -73,6 +73,20 @@ public class SightingsAdapter extends RecyclerView.Adapter<SightingsAdapter.MyVi
             postImage = itemView.findViewById(R.id.victimImage);
             location = itemView.findViewById(R.id.location);
             contact = itemView.findViewById(R.id.contact);
+
+
+           /* contact.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   //Uri myUri = Uri.parse(list.get(getAdapterPosition()).getMobileNo());
+                    Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                    callIntent.setPackage("com.example.finderkenya");
+                    callIntent.setData(Uri.parse(list.get(getAdapterPosition()).getMobileNo()));
+                    itemView.getContext().startActivity(callIntent);
+                }
+            });*/
+
+
         }
     }
 
