@@ -44,6 +44,18 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/forgetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forget Password?"
+            android:textColor="@color/red"
+            android:textAlignment="textEnd"
+            android:textSize="12sp"
+            android:paddingBottom="20dp"
+            android:clickable="true"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
             android:layout_width="match_parent"

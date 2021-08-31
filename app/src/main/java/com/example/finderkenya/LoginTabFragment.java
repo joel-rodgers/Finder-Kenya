@@ -50,7 +50,7 @@ public class LoginTabFragment extends Fragment {
         email = root.findViewById(R.id.email);
         //username = root.findViewById(R.id.username);
         pass = root.findViewById(R.id.pass);
-        //forgetpass = root.findViewById(R.id.forgetPass);
+        forgetpass = root.findViewById(R.id.forgetPassword);
         login = root.findViewById(R.id.login);
         progressBar = root.findViewById(R.id.progress_bar);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -58,19 +58,30 @@ public class LoginTabFragment extends Fragment {
         email.setTranslationX(800);
         //username.setTranslationX(800);
         pass.setTranslationX(800);
-        //forgetpass.setTranslationX(800);
+        forgetpass.setTranslationX(800);
         login.setTranslationX(800);
 
         email.setAlpha(v);
         //username.setAlpha(v);
         pass.setAlpha(v);
-        //forgetpass.setAlpha(v);
+        forgetpass.setAlpha(v);
         login.setAlpha(v);
 
         email.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
         pass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
-        //forgetpass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
+        forgetpass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
         login.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(700).start();
+
+
+
+
+        forgetpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ForgetPassword.class);
+                startActivity(intent);
+            }
+        });
 
 
 
