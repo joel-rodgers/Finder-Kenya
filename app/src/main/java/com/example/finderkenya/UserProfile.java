@@ -105,7 +105,7 @@ public class UserProfile extends AppCompatActivity {
                 if(userHelperClass.getImageURL().equals("default")){
                     circleImageView.setImageResource(R.drawable.profile);
                 }else{
-                    Glide.with(getApplicationContext()).load(userHelperClass.getImageURL()).error(R.drawable.ic_launcher_background).into(circleImageView);
+                    Glide.with(getApplicationContext()).load(userHelperClass.getImageURL()).error(R.drawable.profile).into(circleImageView);
                 }
 
             }
