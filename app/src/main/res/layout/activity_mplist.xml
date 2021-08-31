@@ -28,7 +28,7 @@
         android:backgroundTint="@color/teal_200"
         android:layout_margin="16dp"
         app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintVertical_bias=".9"
+        app:layout_constraintVertical_bias=".8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

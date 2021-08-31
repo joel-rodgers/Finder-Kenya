@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -69,7 +70,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
         holder.victimContact2.setText(mpHelperClass.getVictimContact2());
         holder.caseStatus.setText(mpHelperClass.getCaseStatus());
         boolean isVisible =  mpHelperClass.visibility;
-        holder.constraintLayout.setVisibility(isVisible ? View.VISIBLE : View.GONE);
+        holder.linearLayout.setVisibility(isVisible ? View.VISIBLE : View.GONE);
 
 
         Glide.with(context)
@@ -103,7 +104,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
 
 
 
-        ConstraintLayout constraintLayout;
+        LinearLayout linearLayout;
 
        public MyViewHolder(@NonNull View itemView) {
            super(itemView);
@@ -123,7 +124,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
            victimContact1 = itemView.findViewById(R.id.vc1);
            victimContact2 = itemView.findViewById(R.id.vc2);
            caseStatus = itemView.findViewById(R.id.cstatus);
-           constraintLayout = itemView.findViewById(R.id.expandedLayout);
+           linearLayout = itemView.findViewById(R.id.expandedLayout);
 
            victimName.setOnClickListener(new View.OnClickListener() {
                @Override
