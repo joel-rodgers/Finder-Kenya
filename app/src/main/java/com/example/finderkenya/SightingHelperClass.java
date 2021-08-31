@@ -6,9 +6,11 @@ public class SightingHelperClass {
     private String date;
     private String mobileNo;
     private String postImage;
+    private String victimName;
 
 
-    public SightingHelperClass(String postImage,String mobileNo,String victimCondition,String locationSighting,String sightingId,String dateSeen,String time,String date,String fname,String caseId){
+
+    public SightingHelperClass(String victimName,String postImage,String mobileNo,String victimCondition,String locationSighting,String sightingId,String dateSeen,String time,String date,String fname,String caseId){
 
         this.victimCondition = victimCondition;
         this.locationSighting = locationSighting;
@@ -20,11 +22,20 @@ public class SightingHelperClass {
         this.caseId = caseId;
         this.mobileNo = mobileNo;
         this.postImage = postImage;
+        this.victimName = victimName;
 
     }
 
     public SightingHelperClass(){
 
+    }
+
+    public String getVictimName() {
+        return victimName;
+    }
+
+    public void setVictimName(String victimName) {
+        this.victimName = victimName;
     }
 
     public String getPostImage() {

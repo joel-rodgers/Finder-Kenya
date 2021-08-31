@@ -129,6 +129,7 @@ public class Sightings extends AppCompatActivity {
 
                             newSighting.child("dateSeen").setValue(dateseen.getText().toString());
                             newSighting.child("victimCondition").setValue(victimCondition.getText().toString());
+                            newSighting.child("victimName").setValue(victimname.getText().toString());
                             newSighting.child("locationSighting").setValue(locationSighting.getText().toString());
                             newSighting.child("uid").setValue(mCurrentUser.getUid());
                             newSighting.child("sightingId").setValue(mSightingId);

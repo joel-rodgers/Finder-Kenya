@@ -29,7 +29,7 @@ public class MPList extends AppCompatActivity {
     DatabaseReference database;
     MyAdapter myAdapter;
     ArrayList<MPHelperClass> list;
-    FloatingActionButton fab;
+    FloatingActionButton fab,fabHome;
 
 
 
@@ -54,12 +54,22 @@ public class MPList extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
 
         fab = findViewById(R.id.fab);
+        fabHome = findViewById(R.id.fabHome);
 
         fab.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MPList.this, MissingPersons.class );
                 startActivity(intent);
+            }
+        });
+
+        fabHome.setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MPList.this, MainActivity.class );
+                startActivity(intent);
+                finish();
             }
         });
 

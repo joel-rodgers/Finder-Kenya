@@ -72,8 +72,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>  {
         holder.constraintLayout.setVisibility(isVisible ? View.VISIBLE : View.GONE);
 
 
-        Glide.with(holder.postImage)
-               .load(getPostImage())
+        Glide.with(context)
+               .load(mpHelperClass.getPostImage())
                 .placeholder(R.drawable.profile)
                 .circleCrop()
                 .error(R.drawable.ic_launcher_background)

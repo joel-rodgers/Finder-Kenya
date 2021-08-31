@@ -123,12 +123,12 @@ public class MPPoster extends AppCompatActivity   {
         });
 
 
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+       // share.setOnClickListener(new View.OnClickListener() {
+           // @Override
+            //public void onClick(View v) {
 
-            }
-        });
+           // }
+       // });
 
         sighting.setOnClickListener(new View.OnClickListener() {
             @Override

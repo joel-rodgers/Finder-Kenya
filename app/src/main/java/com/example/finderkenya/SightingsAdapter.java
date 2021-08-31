@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -36,6 +38,18 @@ public class SightingsAdapter extends RecyclerView.Adapter<SightingsAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         SightingHelperClass sightingHelperClass = list.get(position);
+        holder.victimName.setText(sightingHelperClass.getVictimName());
+        holder.dateSeen.setText(sightingHelperClass.getDateSeen());
+        holder.seenBy.setText(sightingHelperClass.getFname());
+        holder.location.setText(sightingHelperClass.getLocationSighting());
+        holder.contact.setText(sightingHelperClass.getMobileNo());
+        Glide
+                .with(context)
+                .load(sightingHelperClass.getPostImage())
+                .placeholder(R.drawable.profile)
+                .circleCrop()
+                .error(R.drawable.ic_launcher_background)
+                .into(holder.postImage);
 
     }
 

@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity  {
         card1 = (CardView) findViewById(R.id.userprofile);
         card2 = (CardView) findViewById(R.id.missingpersons);
         card3 = (CardView) findViewById(R.id.reportMP);
+        card4 = (CardView) findViewById(R.id.seeSightings);
+
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseUser=firebaseAuth.getCurrentUser();
 
@@ -85,6 +87,15 @@ public class MainActivity extends AppCompatActivity  {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(getApplicationContext(), MissingPersons.class);
+                        startActivity(intent);
+
+                    }
+                });
+
+                card4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), SightingList.class);
                         startActivity(intent);
 
                     }
